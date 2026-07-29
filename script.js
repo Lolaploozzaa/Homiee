@@ -350,3 +350,34 @@ beginButton.addEventListener("click", () => {
 ========================================================== */
 
 console.log("HOME website loaded successfully ❤️");
+/* ==========================================================
+   SPOTIFY WIDGET
+========================================================== */
+
+const spotifyToggle = document.getElementById("spotifyToggle");
+const spotifyPanel = document.getElementById("spotifyPanel");
+
+if (spotifyToggle && spotifyPanel) {
+
+    spotifyToggle.addEventListener("click", (e) => {
+
+        e.stopPropagation();
+
+        spotifyPanel.classList.toggle("open");
+
+    });
+
+    document.addEventListener("click", (e) => {
+
+        if (
+            !spotifyPanel.contains(e.target) &&
+            e.target !== spotifyToggle
+        ) {
+
+            spotifyPanel.classList.remove("open");
+
+        }
+
+    });
+
+}
