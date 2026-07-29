@@ -127,9 +127,8 @@ window.addEventListener("mousemove",(e)=>{
    Confetti Canvas Setup
 ========================================================== */
 
-const canvas=document.getElementById("confettiCanvas");
-
-const ctx=canvas.getContext("2d");
+const canvas = document.getElementById("confettiCanvas");
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 function resizeCanvas(){
 
@@ -139,9 +138,10 @@ function resizeCanvas(){
 
 }
 
-resizeCanvas();
-
-window.addEventListener("resize",resizeCanvas);
+if (canvas) {
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+}
 
 let particles=[];
 
